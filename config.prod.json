@@ -1,6 +1,4 @@
 {
   "REGION": "eu-west-1",
-  "PROFILE": "moonmail-deployer",
-  "CLICKS_TABLE": "MoonMail-v2-prod-clicks",
-  "OPENS_TABLE": "MoonMail-v2-prod-opens"
+  "PROFILE": "my-prod-profile"
 }
