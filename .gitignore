@@ -60,5 +60,8 @@ typings/
 # next.js build output
 .next
 
+# macos stuff
+.DS_store
+
 # Serverless directories
 .serverless

@@ -1,4 +1,4 @@
-service: MoonMail-v2-sls-template
+service: my-service-name
 
 plugins:
   - serverless-webpack
