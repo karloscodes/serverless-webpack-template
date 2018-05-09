@@ -15,13 +15,17 @@ module.exports = {
     hints: false
   },
   devtool: 'nosources-source-map',
-  // devtool: 'source-map',
   externals: [nodeExternals()],
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ],
       }
     ]
   },
