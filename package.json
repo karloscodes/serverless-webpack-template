@@ -2,7 +2,7 @@
   "name": "sls-service-template",
   "version": "0.0.1",
   "description": "",
-  "main": "",
+  "main": "src/handler.js",
   "scripts": {
     "watch": "yarn test:unit --watch",
     "test": "yarn test:unit",
@@ -14,7 +14,7 @@
   "devEngines": {
     "node": "8.x || 9.x"
   },
-  "author": "",
+  "author": "Carlos Castellanos Vera",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
