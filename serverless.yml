@@ -1,0 +1,44 @@
+service: MoonMail-v2-sls-template
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  defaultStage: dev
+  currentStage: ${opt:stage, self:custom.defaultStage}
+  resourcesPrefix: ${self:service}-${self:custom.currentStage}
+  config: ${file(./config.${self:custom.currentStage}.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'   # Name of webpack configuration file
+    includeModules: true   # Node modules configuration for packaging
+    packager: 'yarn'   # Packager that will be used to package your external modules
+  serverless-offline:
+    babelOptions:
+      presets: ["es2015"]
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: ${opt:profile, self:custom.config.PROFILE}
+  region: ${opt:region, self:custom.config.REGION}
+  timeout: 300
+  environment:
+    REGION: ${self:custom.config.REGION}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource: "*"
+
+package:
+  individually: true
+
+functions:
+  hello:
+    handler: src/handler.default
+    events:
+      - http:
+          path: version
+          method: get
+
