@@ -19,7 +19,7 @@ custom:
       presets: ["es2015"]
   alerts:
     stages:
-      - production
+      - prod
     topics:
       alarm: 
         topic: ${self:service}-${opt:stage}-alerts-alarm
